@@ -45,10 +45,3 @@ module.exports.init = dbconfig => {
 module.exports.getModel = () => {
   return model;
 };
-
-
-
-
-
-
-
