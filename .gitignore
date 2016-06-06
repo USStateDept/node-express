@@ -1,0 +1,20 @@
+# OS files           #
+######################
+.DS_Store
+.DS_Store?
+
+# NPM files          #
+######################
+/node_modules/
+npm-debug.log
+
+# DEV files          #
+######################
+.build/
+.editorconfig
+.vscode
+
+# APP files          #
+######################
+*.log
+config/config.json

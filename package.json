@@ -1,0 +1,26 @@
+{
+  "name": "node-express",
+  "version": "1.0.0",
+  "description": "Base structure and config for our Node/express backends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development  nodemon server.js",
+    "prod": "TODO"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "es6",
+    "sequelize"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "asyncawait": "^1.0.3",
+    "body-parser": "^1.15.1",
+    "sequelize": "^3.23.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  }
+}
