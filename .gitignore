@@ -17,4 +17,5 @@ npm-debug.log
 # APP files          #
 ######################
 *.log
-config/config.json
+config/indes.js
+/logs/

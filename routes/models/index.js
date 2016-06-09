@@ -10,14 +10,12 @@
 import fs        from "fs";
 import path      from "path";
 import Sequelize from "sequelize";
-let env = process.env.NODE_ENV || "development";
-
-// base object
+import config    from "../../config";
 let model;
 
 module.exports.init = dbconfig => {
   
-  let sequelize = new Sequelize(dbconfig.name, dbconfig.username, dbconfig.password, dbconfig.settings);
+  let sequelize = new Sequelize(dbconfig.name, dbconfig.user, dbconfig.pass, dbconfig.settings);
   let db = {};
 
   fs
@@ -26,8 +24,8 @@ module.exports.init = dbconfig => {
       return (file.indexOf(".") !== 0) && (file !== "index.js");
     })
     .forEach( file => {
-      let model = sequelize.import(path.join(__dirname, file));
-      db[model.name] = model;
+      let imodel = sequelize.import(path.join(__dirname, file));
+      db[imodel.name] = imodel;
     });
 
   Object.keys(db).forEach( modelName => {
@@ -40,7 +38,7 @@ module.exports.init = dbconfig => {
   db.Sequelize = Sequelize;
 
   model = db;
-}
+};
 
 module.exports.getModel = () => {
   return model;
