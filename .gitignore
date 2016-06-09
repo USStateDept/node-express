@@ -17,5 +17,5 @@ npm-debug.log
 # APP files          #
 ######################
 *.log
-config/indes.js
+config/index.js
 /logs/
