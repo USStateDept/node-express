@@ -3,13 +3,16 @@ import userCtrl from '../controllers/user';
 
 const router = express.Router();	// eslint-disable-line new-cap
 
-// router.route('/')
+router.route('/')
 	
 // 	/**
 // 	 * GET - localhost/users/
 // 	 * get all users
 // 	 */
-// 	.get(userCtrl.getAll)
+	.get((req, res) => {
+	console.log("YO");
+	res.send('Welcome to the API');
+    });
 
 // 	/**
 // 	 * POST - localhost/users/

@@ -37,16 +37,10 @@ app.use(morgan("combined", { "stream": logger.stream }));
 // routes
 app.use('/', routes);
 
-let server;
-
-// Create and start HTTP server.
-server = http.createServer(app);
-
 // Start the server with sequelize synced
 model.init(config.database);
 model.getModel().sequelize.sync().then( () => {
-  server.listen(config.port);
-  server.on('listening', () => {
+  app.listen(config.express.port, () => {
     console.log(`API ===> 🐙  Express Server listening on ${config.express.host}:${config.express.port}`);
   });
 });

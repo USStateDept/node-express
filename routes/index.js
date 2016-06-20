@@ -7,9 +7,10 @@ const router = express.Router();
  * GET Route - localhost/
  * base route
  */
-router.get('/', (req, res) =>
-	res.send('Welcome to the API')
-);
+router.get('/', (req, res) => {
+	console.log("YO");
+	res.send('Welcome to the API');
+});
 
 // mount routes
 router.use('/users', userRoutes);
