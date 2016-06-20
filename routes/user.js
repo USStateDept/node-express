@@ -10,8 +10,8 @@ router.route('/')
 // 	 * get all users
 // 	 */
 	.get((req, res) => {
-	console.log("YO");
-	res.send('Welcome to the API');
+        console.log("YO");
+        res.send('Welcome to the API');
     });
 
 // 	/**
