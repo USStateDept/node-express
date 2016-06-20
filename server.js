@@ -1,11 +1,12 @@
 import express from 'express';
+import http from 'http';
 import morgan from 'morgan';
 import winston from 'winston';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import routes from './routes';
 import config from './config';
-import model from './routes/models';
+import model from './models';
 
 const app = express();
 
@@ -34,12 +35,18 @@ logger.stream = {
 app.use(morgan("combined", { "stream": logger.stream }));
 
 // routes
-app.use('/api', routes);
+app.use('/', routes);
+
+let server;
+
+// Create and start HTTP server.
+server = http.createServer(app);
 
 // Start the server with sequelize synced
 model.init(config.database);
 model.getModel().sequelize.sync().then( () => {
-  const server = app.listen(config.port, () => {
+  server.listen(config.port);
+  server.on('listening', () => {
     console.log(`API ===> 🐙  Express Server listening on ${config.express.host}:${config.express.port}`);
   });
 });

@@ -4,7 +4,7 @@ export default {
 
   "express": {
     "port": process.env.EXPRESS_PORT || 3000,
-    "host": process.env.EXPRESS_HOST || "127.0.0.1"
+    "host": process.env.EXPRESS_HOST || "localhost"
   },
 
   "database": {
